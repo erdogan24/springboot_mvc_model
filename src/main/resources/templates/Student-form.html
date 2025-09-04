@@ -31,13 +31,20 @@
     <br><br>
 
     Favorite Programming Language:
-
-    <input type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input>
-    <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>
-    <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>
+    <input type="radio" th:field="*{favoriteLanguage}"
+                        th:each="tempLang : ${languages}"
+                        th:value="${tempLang}"
+                        th:text="${tempLang}"/>
 
     <br><br>
+    Favorite Operating Systems:
 
+    <input type="checkbox" th:field="*{favoriteSystems}" th:value="Linux">Linux</input>
+    <input type="checkbox" th:field="*{favoriteSystems}" th:value="Linux">macos</input>
+    <input type="checkbox" th:field="*{favoriteSystems}"
+                           th:value="'Microsoft Windows'">Microsoft Windows</input>
+
+    <br><br>
 
     <input type="submit" value="Submit" />
 </form>
